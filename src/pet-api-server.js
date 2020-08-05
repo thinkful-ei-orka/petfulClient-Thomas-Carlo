@@ -97,3 +97,9 @@ const petApiService = {
     },
 
 }
+
+
+dequeue() {
+    // Remove a person from the queue.
+    return people.dequeue();
+  }
