@@ -19,6 +19,7 @@ export class PetContextProvider extends Component {
         cat: {},
         dog: {},
         peopleList: [],
+        isFront: false,
     }
 
     getPets = () =>  {
@@ -42,15 +43,41 @@ export class PetContextProvider extends Component {
             })
     }
 
+    handleAddPerson = (person) => {
+        console.log(person);
+        const newPerson = {
+            person
+        }
+
+        console.log(newPerson);
+        PetApiService.addPerson(newPerson)
+            .then(person => {
+                let newPeople = [...this.state.peopleList, person];
+
+                this.setState({
+                    peopleList: newPeople
+                })
+            })
+    }
+
+    handleToggleFront = () => {
+        this.setState({
+            isFront: true
+        })
+    }
+
     render() {
         const value = {
             startFlag: this.state.startFlag,
             cat: this.state.cat,
             dog: this.state.dog,
             peopleList: this.state.peopleList,
+            isFront: this.state.isFront,
 
             getPets: this.getPets,
-            getPeople: this.getPeople
+            getPeople: this.getPeople,
+            handleAddPerson: this.handleAddPerson,
+            handleToggleFront: this.handleToggleFront
         }
 
         return (

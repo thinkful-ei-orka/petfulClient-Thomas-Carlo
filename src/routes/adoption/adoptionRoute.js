@@ -14,13 +14,13 @@ export default class AdoptionRoute extends Component {
     render() {
 
         console.log(this.context.peopleList);
-        return(
+        return (
             <>
-            <p>Hello</p>
-            <Pet type={this.context.cat} />
-            <Pet type={this.context.dog} />
-
-            <PersonList list={this.context.peopleList} />
+                <PersonList list={this.context.peopleList} />
+                <div className="pet-display">
+                    <Pet type={this.context.cat} />
+                    <Pet type={this.context.dog} />
+                </div>
             </>
         )
     }

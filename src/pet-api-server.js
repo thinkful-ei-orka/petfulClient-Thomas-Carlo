@@ -67,7 +67,6 @@ const petApiService = {
             }
         })
             .then(res => {
-                console.log(res.body);
                 return res.json();
             });
     },
@@ -90,7 +89,7 @@ const petApiService = {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({person})
+            body: JSON.stringify(person)
         })
             .then(res => {
                 return res.json();

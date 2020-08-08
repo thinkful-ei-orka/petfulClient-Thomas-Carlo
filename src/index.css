@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.pet-window {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 400px;
+    padding: 25px;
+    border: 2px solid #888071;
+    background-color: #888071;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pet-window img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.pet-window p {
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.pet-display {
+    display: flex;
+    flex-flow: row wrap;
+    width: 80%;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 5px;
+}
+
+.button-container {
+    margin-bottom: 20px;
+}
