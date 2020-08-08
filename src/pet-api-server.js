@@ -67,6 +67,7 @@ const petApiService = {
             }
         })
             .then(res => {
+                console.log(res.body);
                 return res.json();
             });
     },

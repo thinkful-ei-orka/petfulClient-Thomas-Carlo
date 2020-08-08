@@ -13,9 +13,7 @@ export default class AdoptionRoute extends Component {
 
     render() {
 
-        console.log(this.context.cat);
-        console.log(this.context.dog);
-        console.log(this.context.people);
+        console.log(this.context.peopleList);
         return(
             <>
             <p>Hello</p>

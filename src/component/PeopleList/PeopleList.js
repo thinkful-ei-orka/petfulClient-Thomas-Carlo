@@ -4,10 +4,11 @@ export default class PeopleList extends Component {
 
 
     render() {
-        const list = this.props.list;
+        const people = this.props.list;
+        console.log(people)
         return(
             <div className='pet-window'>
-                {list.forEach((person, i) => {
+                {people.map((person, i) => {
                     return <p>{i}: {person}</p>
                 })}
             </div>
