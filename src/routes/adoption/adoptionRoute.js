@@ -6,7 +6,16 @@ import PersonList from '../../component/PeopleList/PeopleList';
 export default class AdoptionRoute extends Component {
     static contextType = PetContext
 
+    componentDidMount() {
+        this.context.getPets();
+        this.context.getPeople();
+    }
+
     render() {
+
+        console.log(this.context.cat);
+        console.log(this.context.dog);
+        console.log(this.context.people);
         return(
             <>
             <p>Hello</p>

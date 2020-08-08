@@ -8,7 +8,7 @@ class Root extends Component {
     return (
       <div className='Root'>
         <PetContextProvider>
-        <Routes />
+          <Routes />
         </PetContextProvider>
       </div>
     )
