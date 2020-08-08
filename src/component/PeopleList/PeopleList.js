@@ -9,7 +9,7 @@ export default class PeopleList extends Component {
         return(
             <div className='pet-window'>
                 {people.map((person, i) => {
-                    return <p>{i}: {person}</p>
+                    return <p key={i}>{i}: {person}</p>
                 })}
             </div>
         )
