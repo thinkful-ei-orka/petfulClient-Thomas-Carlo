@@ -54,7 +54,6 @@ export default class PeopleList extends Component {
     }
 
     handleFillPeople = () => {
-        console.log('Handle fill people ran');
 
         let pList = ['dude man', 'dude girl', 'frank oscar', 'leroy baker', 'jenkins warhammer']
         let countTwo = 0;
@@ -72,8 +71,6 @@ export default class PeopleList extends Component {
 
     render() {
         const people = this.props.list;
-
-        console.log('isFront: ', this.context.isFront);
 
         return (
             <div className='pet-window'>
