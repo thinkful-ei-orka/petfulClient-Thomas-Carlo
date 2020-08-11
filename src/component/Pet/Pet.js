@@ -5,7 +5,7 @@ export default class Pet extends Component {
     static contextType = PetContext;
 
     handleAdopt = () => {
-        this.context.handleAdoptPet();
+        this.context.handleAdoptPet(this.props.type.type);
     }
 
     render() {
@@ -15,7 +15,7 @@ export default class Pet extends Component {
                 <img src={pet.imageURL} alt={pet.imageDescription}></img>
                 <p>{pet.imageDescription}</p>
                 <p>Name: {pet.name}</p>
-                <p>Sex: {pet.sex}</p>
+                <p>Sex: {pet.gender}</p>
                 <p>Age: {pet.age}</p>
                 <p>Breed: {pet.breed}</p>
                 <p>Story: {this.props.type.story}</p>

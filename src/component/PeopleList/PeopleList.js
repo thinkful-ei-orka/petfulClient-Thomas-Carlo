@@ -30,6 +30,7 @@ export default class PeopleList extends Component {
             count++;
             if (count === 3) {
                 this.context.handleToggleFront();
+                this.handleFillPeople();
                 clearInterval(interval);
             }
             if (petFlag) {
@@ -48,25 +49,31 @@ export default class PeopleList extends Component {
             petFlag = !petFlag;
             this.handleCycle();
         }, 3000)
+
+
+    }
+
+    handleFillPeople = () => {
+        console.log('Handle fill people ran');
+
+        let pList = ['dude man', 'dude girl', 'frank oscar', 'leroy baker', 'jenkins warhammer']
+        let countTwo = 0;
+        let intervalTwo = setInterval(() => {
+            
+            if (countTwo === 4) {
+                clearInterval(intervalTwo);
+            }
+                
+            this.context.handleAddPerson(pList[countTwo])
+            countTwo++;
+        }, 3000)
     }
 
 
     render() {
         const people = this.props.list;
 
-        console.log(this.context.isFront);
-        if (this.context.isFront) {
-            let pList = ['dude man, dude girl, frank oscar, leroy baker']
-            let countTwo = 0;
-            let intervalTwo = setInterval(() => {
-                countTwo++;
-                if (countTwo === 4)
-                    clearInterval(intervalTwo);
-
-                PetApiService.addPerson(pList[countTwo]);
-            }, 3000)
-        }
-
+        console.log('isFront: ', this.context.isFront);
 
         return (
             <div className='pet-window'>

@@ -35,16 +35,24 @@ export class PetContextProvider extends Component {
                     this.getDog()    
                 )
         }
-        this.setState({
-            adoptedPet: true
-        })
+        PetApiService.removePerson()
+            .then(res => {
+                this.getPeople();
+                this.setState({
+                    adoptedPet: true,
+                    isFront: false
+                })
+            })
+
+
     }
 
     getCat = () => {
         PetApiService.getCat()
             .then(cat => {
+                let newCat = Object.assign(cat, { type: 'cat' })
                 this.setState({
-                    cat
+                    cat: newCat
                 })
             })
     }
@@ -52,8 +60,9 @@ export class PetContextProvider extends Component {
     getDog = () => {
         PetApiService.getDog()
             .then(dog => {
+                let newDog = Object.assign(dog, { type: 'dog' })
                 this.setState({
-                    dog
+                    dog: newDog
                 })
             })
     }
@@ -63,6 +72,10 @@ export class PetContextProvider extends Component {
             .then(pets => {
                 let cat = pets[1];
                 let dog = pets[0];
+
+                cat = Object.assign(cat, { type: 'cat' })
+                dog = Object.assign(dog, { type: 'dog' })
+
                 this.setState({
                     cat,
                     dog
