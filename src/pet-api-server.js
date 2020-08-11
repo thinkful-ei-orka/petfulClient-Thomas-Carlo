@@ -24,7 +24,7 @@ const petApiService = {
     },
 
     removeCat() {
-        return fetch(`${API_ENDPOINT}/api/cat`, {
+        return fetch(`${API_ENDPOINT}/pets`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
@@ -32,7 +32,9 @@ const petApiService = {
             body: JSON.stringify({type: 'cat'})
         })
             .then(res => {
-                return res.json();
+                if(!res.ok) {
+                    throw new Error(res.status)
+                }
             });
     },
 
@@ -48,7 +50,7 @@ const petApiService = {
     },
 
     removeDog() {
-        return fetch(`${API_ENDPOINT}/api/dog`, {
+        return fetch(`${API_ENDPOINT}/pets`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
@@ -56,7 +58,9 @@ const petApiService = {
             body: JSON.stringify({type: 'dog'})
         })
             .then(res => {
-                return res.json();
+                if(!res.ok) {
+                    throw new Error(res.status)
+                }
             });
     },
 
@@ -79,7 +83,9 @@ const petApiService = {
             },
         })
             .then(res => {
-                return res.json();
+                if(!res.ok) {
+                    throw new Error(res.status)
+                }
             });
     },
 

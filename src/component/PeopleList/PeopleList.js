@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import PetContext from '../../context/PetContext';
+import PetApiService from '../../pet-api-server';
 
 export default class PeopleList extends Component {
     static contextType = PetContext;
 
     state = {
         disabled: false,
+    }
+
+    handleCycle = () => {
+        PetApiService.removePerson();
+        this.context.getPeople();
     }
 
     startProcess = (e) => {
@@ -19,13 +25,31 @@ export default class PeopleList extends Component {
         })
 
         let count = 0;
-        let interval = setInterval(function() {
+        let petFlag = true;
+        let interval = setInterval(() => {
             count++;
             if(count === 3) {
                 this.context.handleToggleFront();
                 clearInterval(interval);
             } 
-        }, 1000)
+            if(petFlag) {
+                PetApiService.removeCat()
+                    .then(res => {
+                        this.context.getCat();
+                    })
+                
+            } else {
+                PetApiService.removeDog()
+                    .then(res => {
+                        this.context.getDog();
+                    })
+                
+            }
+            petFlag = !petFlag;
+            this.handleCycle();
+        }, 3000)
+
+        
     }
 
 

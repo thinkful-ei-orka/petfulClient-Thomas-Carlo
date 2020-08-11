@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
+import PetContext from '../../context/PetContext';
 
 export default class Pet extends Component {
+    static contextType = PetContext;
+
+    handleAdopt = () => {
+        this.context.handleAdoptPet();
+    }
 
     render() {
         const pet = this.props.type;
@@ -13,6 +19,12 @@ export default class Pet extends Component {
                 <p>Age: {pet.age}</p>
                 <p>Breed: {pet.breed}</p>
                 <p>Story: {this.props.type.story}</p>
+
+                {this.context.isFront &&
+                <>
+                    <button onClick={this.handleAdopt}>Adopt me!</button>
+                </>
+                }
             </div>
         )
     }
