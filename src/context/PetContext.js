@@ -23,7 +23,18 @@ export class PetContextProvider extends Component {
         adoptedPet: false
     }
 
-    handleAdoptPet = () => {
+    handleAdoptPet = (type) => {
+        if (type === 'cat') {
+            PetApiService.removeCat()
+                .then(res => 
+                    this.getCat()
+                )
+        } else {
+            PetApiService.removeDog()
+                .then(res => 
+                    this.getDog()    
+                )
+        }
         this.setState({
             adoptedPet: true
         })

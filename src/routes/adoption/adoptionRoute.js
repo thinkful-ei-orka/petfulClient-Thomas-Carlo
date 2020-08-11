@@ -21,6 +21,13 @@ export default class AdoptionRoute extends Component {
                     <Pet type={this.context.cat} />
                     <Pet type={this.context.dog} />
                 </div>
+
+                {this.context.adoptedPet && 
+                <div className='pet-adopted-message'>
+                        <p>You've adopted a new pet!</p>
+                </div>
+                }
+                
             </>
         )
     }
