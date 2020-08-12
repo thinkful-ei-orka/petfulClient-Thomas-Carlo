@@ -12,8 +12,6 @@ export default class AdoptionRoute extends Component {
     }
 
     render() {
-
-        console.log(this.context.peopleList);
         return (
             <>
                 <PersonList list={this.context.peopleList} />
