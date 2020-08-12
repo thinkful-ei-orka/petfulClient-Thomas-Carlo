@@ -1,0 +1,24 @@
+h1 {
+    text-align: center;
+}
+
+.petful-block {
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: tan;
+    width: 80%;
+}
+
+.petful-block p {
+    font-size: 1.2rem;
+    padding: 5px 0;
+}
+
+.petful-block button {
+    padding: 10px;
+    margin: 10px auto;
+}
