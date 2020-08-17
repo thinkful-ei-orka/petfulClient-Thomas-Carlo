@@ -1,4 +1,4 @@
-const API_ENDPOINT = 'https://calm-dawn-58724.herokuapp.com/'
+const API_ENDPOINT = 'https://calm-dawn-58724.herokuapp.com'
 
 const petApiService = {
     getPets() {
